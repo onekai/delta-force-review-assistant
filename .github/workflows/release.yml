@@ -1,0 +1,36 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      IMAGE: ghcr.io/onekai/delta-force-review-assistant
+    steps:
+      - uses: actions/checkout@v4
+      - name: 打安装包
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          git archive --format=zip --prefix=fupan-assistant/ -o "fupan-assistant-$VERSION.zip" HEAD
+      - name: 发布 Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" "fupan-assistant-$VERSION.zip" \
+            --title "$GITHUB_REF_NAME（测试版）" --notes-file "docs/releases/$GITHUB_REF_NAME.md"
+      - name: 发布界面演示镜像
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "$GH_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+          docker build -t "$IMAGE:$VERSION" -t "$IMAGE:latest" .
+          docker push "$IMAGE:$VERSION"
+          docker push "$IMAGE:latest"
