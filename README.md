@@ -1,5 +1,6 @@
 # 三角洲复盘助手 · Delta Force Review Assistant
 
+[![CI](https://github.com/onekai/delta-force-review-assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/onekai/delta-force-review-assistant/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB)
 ![Platform](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D6)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -85,7 +86,7 @@ flowchart LR
 
 ## 技术栈
 
-Python 3.12 · PySide6（QtWebEngine / QWebChannel）· FFmpeg（ddagrab、NVENC / AMF / QSV、VP9）· Windows.Media.Ocr（pywinrt）· OpenAI 兼容大模型接口（DeepSeek / Qwen-VL / 豆包 / GLM-4.5V）· SQLite · PresentMon（ETW）· Tailwind CSS · pytest
+Python 3.12 · PySide6（QtWebEngine / QWebChannel）· FFmpeg（ddagrab、NVENC / AMF / QSV、VP9）· Windows.Media.Ocr（pywinrt）· OpenAI 兼容大模型接口（DeepSeek / Qwen-VL / 豆包 / GLM-4.5V）· SQLite · PresentMon（ETW）· Tailwind CSS · pytest · GitHub Actions
 
 ## 快速开始
 
