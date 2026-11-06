@@ -90,7 +90,15 @@ Python 3.12 · PySide6（QtWebEngine / QWebChannel）· FFmpeg（ddagrab、NVENC
 
 ## 快速开始
 
-**普通用户（Windows 10/11）**：点本页的 Code → Download ZIP，解压到一个固定位置，双击 `setup.bat`，等窗口里出现绿色的“安装完成”。
+**普通用户（Windows 10/11）**：到 [Releases](https://github.com/onekai/delta-force-review-assistant/releases) 下载最新的 zip，解压到一个固定位置，双击 `setup.bat`，等窗口里出现绿色的“安装完成”。
+
+**只想看界面**（任何系统，需要 Docker，用虚构的示例数据）：
+
+```bash
+docker run --rm -p 8765:80 ghcr.io/onekai/delta-force-review-assistant
+```
+
+然后打开 `http://localhost:8765`。
 
 **开发者**：
 
