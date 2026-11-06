@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# 安装脚本下载到本地的工具和运行环境
+bin/
+tools/
+python/
+*.zip
+
+# 本机开发配置
+.claude/
+.DS_Store
+Thumbs.db

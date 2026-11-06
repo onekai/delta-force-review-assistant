@@ -1,0 +1,6 @@
+# Windows 脚本保持原样（CRLF 换行、UTF-8 BOM），不让 git 改动
+*.bat -text
+*.ps1 -text
+*.png binary
+*.ico binary
+*.woff2 binary

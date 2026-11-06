@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html class="dark" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>三角洲复盘助手</title>
+<link rel="stylesheet" href="app.css?v=ff368f3b"/>
+</head>
+<body class="bg-background font-body-md text-body-md text-on-surface select-none antialiased min-h-screen">
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 shadow-[0_1px_8px_rgba(0,0,0,0.5)]">
+  <div class="h-14 w-full px-space-md flex items-center justify-between gap-space-md">
+    <div class="flex items-center gap-space-sm shrink-0">
+      <img alt="" class="h-8 w-8" src="img/logo.svg"/>
+      <div class="flex flex-col">
+        <div class="flex items-center gap-space-xs">
+          <span class="font-headline-sm text-headline-sm tracking-wider text-primary">三角洲复盘助手</span>
+          <span id="hdr-version" class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant">测试版</span>
+        </div>
+        <span class="font-label-sm text-label-sm text-on-surface-variant">REPLAY ANALYTICS // DESKTOP CLIENT</span>
+      </div>
+    </div>
+    <div class="flex-1 flex items-center justify-center min-w-0">
+      <div id="hdr-status" class="flex items-center gap-space-xs px-space-md py-1 rounded bg-surface-container-low shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] min-w-0 overflow-hidden"></div>
+    </div>
+    <div class="flex items-center gap-space-sm shrink-0">
+      <div id="hdr-rec" class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1 rounded font-label-sm text-label-sm"></div>
+      <div id="hdr-ai" class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1 rounded font-label-sm text-label-sm cursor-pointer" data-action="goto" data-view="settings" data-anchor="ai"></div>
+    </div>
+  </div>
+</header>
+
+<aside class="fixed left-0 top-14 bottom-0 w-64 bg-surface-container-low z-40 flex flex-col justify-between py-space-md">
+  <div class="flex flex-col gap-space-md px-space-md">
+    <div class="px-space-sm pt-space-xs"><div class="font-label-sm text-label-sm text-outline tracking-widest uppercase">NAVIGATION // TACTICAL CORE</div></div>
+    <nav id="nav" class="flex flex-col gap-space-xs">
+      <a class="nav-item" data-action="goto" data-view="overview"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>复盘总览</span></a>
+      <a class="nav-item" data-action="goto" data-view="matches"><span class="material-symbols-outlined text-[20px]">smart_display</span><span>对局录像与击杀分析</span></a>
+      <a class="nav-item" data-action="goto" data-view="gunsmith"><span class="material-symbols-outlined text-[20px]">hardware</span><span>改枪码推荐</span></a>
+      <a class="nav-item" data-action="goto" data-view="optimize"><span class="material-symbols-outlined text-[20px]">tune</span><span>赛前优化与体检</span></a>
+      <a class="nav-item" data-action="goto" data-view="settings"><span class="material-symbols-outlined text-[20px]">settings</span><span>设置</span></a>
+    </nav>
+  </div>
+  <div class="px-space-md flex flex-col gap-space-xs">
+    <div class="tile p-space-sm flex flex-col gap-space-xs">
+      <div class="flex items-center justify-between">
+        <span class="font-label-sm text-label-sm text-on-surface-variant">REC 存储</span>
+        <span id="side-storage" class="font-label-sm text-label-sm text-tertiary">—</span>
+      </div>
+      <div class="w-full h-1 bg-surface-container-highest rounded overflow-hidden"><div id="side-storage-bar" class="h-full bg-tertiary" style="width:0%"></div></div>
+      <div class="flex items-center justify-between pt-space-xs">
+        <span class="font-label-sm text-label-sm text-outline-variant">GPU</span>
+        <span id="side-gpu" class="font-label-sm text-label-sm text-secondary">—</span>
+      </div>
+    </div>
+    <div class="text-center"><span id="side-build" class="font-label-sm text-label-sm text-outline-variant">LOCAL ENGINE</span></div>
+  </div>
+</aside>
+
+<div class="pl-64">
+  <main class="relative pt-14 w-full bg-surface min-h-screen">
+    <div id="view" class="flex flex-col w-full p-space-md gap-space-md"></div>
+  </main>
+</div>
+
+<div id="modal-root"></div>
+<div id="toasts" class="fixed right-space-lg bottom-space-lg z-[60] flex flex-col gap-space-xs items-end"></div>
+
+<script src="mock.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

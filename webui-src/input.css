@@ -1,0 +1,53 @@
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("fonts/inter.woff2?v=__V__") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 100 800; font-display: swap; src: url("fonts/jetbrains-mono.woff2?v=__V__") format("woff2"); }
+@font-face { font-family: "Material Symbols Outlined"; font-style: normal; font-weight: 100 700; font-display: block; src: url("fonts/material-symbols.woff2?v=__V__") format("woff2"); }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body { margin: 0; padding: 0; background: #0b141c; }
+  body { overscroll-behavior: none; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #2d363e; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #534434; }
+  input, select, textarea { color-scheme: dark; }
+}
+
+@layer components {
+  .material-symbols-outlined {
+    font-family: "Material Symbols Outlined"; font-weight: normal; font-style: normal; line-height: 1;
+    letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; direction: ltr;
+    -webkit-font-feature-settings: "liga"; -webkit-font-smoothing: antialiased; user-select: none;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  }
+  .icon-fill { font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24; }
+  .panel { @apply bg-surface-container-low rounded-lg; box-shadow: 0 1px 2px rgba(0,0,0,.25); }
+  .tile { @apply bg-surface-container rounded; box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.05); }
+  .chip { @apply inline-flex items-center gap-1 px-space-xs py-0.5 rounded font-label-sm text-label-sm; }
+  .btn { @apply inline-flex items-center justify-center gap-space-xs px-space-md py-space-sm rounded font-body-md text-body-md transition-colors cursor-pointer select-none; }
+  .btn-primary { @apply btn bg-primary-container text-on-primary-container font-semibold hover:bg-primary; }
+  .btn-ghost { @apply btn bg-surface-container-high text-on-surface hover:bg-surface-variant; }
+  .btn-quiet { @apply btn bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface; }
+  .btn-ok { @apply btn bg-secondary-container text-on-secondary-container font-semibold hover:bg-secondary; }
+  .btn[disabled] { @apply opacity-40 cursor-not-allowed; }
+  .field { @apply w-full bg-surface-container-lowest border border-surface-container-highest rounded px-space-sm py-space-xs font-label-md text-label-md text-on-surface outline-none focus:border-primary-container; }
+  .tag-label { @apply font-label-sm text-label-sm uppercase tracking-wide; }
+  .switch { @apply relative inline-flex items-center cursor-pointer select-none; }
+  .switch input { @apply sr-only; }
+  .switch .track { @apply w-12 h-6 rounded-full bg-surface-container-highest transition-colors; box-shadow: inset 0 1px 2px rgba(0,0,0,.4); }
+  .switch .knob { @apply absolute top-[3px] left-[4px] h-[18px] w-[18px] rounded-full bg-on-surface-variant transition-all; }
+  .switch input:checked + .track { @apply bg-primary-container; }
+  .switch input:checked + .track + .knob { @apply translate-x-[22px] bg-on-primary-container; }
+  .switch.ok input:checked + .track { @apply bg-secondary-container; }
+  .switch.ok input:checked + .track + .knob { @apply bg-on-secondary-container; }
+  .nav-item { @apply flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all cursor-pointer; }
+  .nav-item.active { @apply bg-primary-container text-on-primary-container font-semibold; box-shadow: 0 0 8px rgba(245,158,11,0.3); }
+  .seg { @apply flex rounded bg-surface-container-lowest p-0.5 gap-0.5; }
+  .seg button { @apply px-space-sm py-1 rounded font-label-md text-label-md text-on-surface-variant hover:text-on-surface; }
+  .seg button.on { @apply bg-primary-container text-on-primary-container font-semibold; }
+  .empty { @apply flex flex-col items-center justify-center text-center gap-space-xs py-space-xl text-on-surface-variant font-body-md text-body-md; }
+  .toast { @apply px-space-md py-space-sm rounded shadow-lg font-body-md text-body-md border; }
+}
